@@ -1,0 +1,50 @@
+{
+  "name": "notifications",
+  "version": "1.0.0",
+  "main": "server_push.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server_push.js",
+    "wstart": "node app.js",
+    "dev": "cross-env NODE_ENV=development nodemon server"
+  },
+  "engines": {
+    "node": "14.17.1",
+    "npm": "6.14.13"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "assert": "^2.0.0",
+    "axios": "^0.21.4",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "buffer": "^6.0.3",
+    "child_process": "^1.0.2",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "ejs": "^3.1.6",
+    "eslint": "^7.21.0",
+    "express-myconnection": "^1.0.4",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.11.1",
+    "firebase-tools": "^9.21.0",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.7",
+    "os": "^0.1.2",
+    "path": "^0.12.7",
+    "postgresql": "0.0.1",
+    "sequelize": "^6.6.5",
+    "sequelize-cli": "^6.2.0",
+    "session-validator": "^1.0.5",
+    "socket.io": "^3.1.2",
+    "twig": "^1.15.4",
+    "web-push": "^3.4.4",
+    "zlib": "^1.0.5"
+  },
+  "devDependencies": {},
+  "description": ""
+}

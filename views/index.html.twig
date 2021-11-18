@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JustDream delivery</title>
+</head>
+<body>
+    <!-- Connexion sur le socket-->
+    <script src ='/socket.io/socket.io.js'>
+    </script>
+    <script >
+        
+       let socket = io('http://localhost:4000');
+       
+       let nom = '' , nomD = '';
+
+       let sendData = () =>{
+
+           nomD = document.getElementById("nom").value ;
+
+           data = {
+               "nom" : document.getElementById("nom").value,
+
+               "quartier" : document.getElementById("quartier").value,
+
+               "ville" : document.getElementById("ville").value
+           };
+
+           socket.emit('delivery_join' , data);
+       }
+       
+       let validDemand = () =>{
+
+           socket.emit('delivery_accept',{
+               
+               "nom_utilisateur" : nom ,
+
+               "nom_livreur" : nomD
+           } )
+       }
+
+       // affichage de la notification : demande de livraison du client
+
+       socket.on('notifications', (data) =>{
+
+           nom = data.nom;
+
+           // affichage de la notification 
+           alert(`Le client ${data.nom} a besoin d'une livraison a la pharmacie ${data.nom_pharmacie}`);
+       });
+
+        socket.on('valid_apply' , (data) =>{
+
+            nom = data.nom;
+
+            alert(`${data.message}`);
+        });
+       
+       
+    </script>
+    
+
+    <div>
+
+        
+        <input type="text" id ="nom"/><br/>
+
+        <input type="text" id ="quartier"/><br/>
+
+        <input type="text" id ="ville"/><br/>
+
+        <button onclick = 'sendData()' > Envoi au client </button>
+        
+         <button onclick = 'validDemand()' > Confirme la livraison </button>
+    
+    </div>
+
+    
+</body>
+
+</html>
